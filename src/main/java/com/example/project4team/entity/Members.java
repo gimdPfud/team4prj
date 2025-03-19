@@ -15,6 +15,7 @@ public class Members {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long membersNum;
 
+    @Column(length = 20)
     private String name;
 
     @Column(unique = true)
