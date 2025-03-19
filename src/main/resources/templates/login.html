@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+</head>
+<body>
+<h1>로그인페이지</h1>
+
+<script th:inline="javascript">
+    let name = [[${name}]]
+    if(name){
+        alert(name + " 님 환영합니다. 로그인을 해 주세요.")
+    }
+</script>
+<form action="/login" method="post">
+이메일 : <input name="email"><br>
+비밀번호 : <input name="password"><br>
+    <button>전송</button>
+</form>
+</body>
+</html>

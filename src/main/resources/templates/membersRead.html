@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원정보보기</title>
+</head>
+<body>
+<th:block th:field="${membersDTO}">
+    이름 : <span th:text="${membersDTO.name}"></span><br>
+    이메일 : <span th:text="${membersDTO.email}"></span><br>
+    비번 : <span th:text="${membersDTO.password}"></span><br>
+    권한 : <span th:text="${membersDTO.role}"></span><br>
+    <a href="/members/modify">수정페이지로</a><br>
+    <a href="/main">메인페이지로</a>
+</th:block>
+</body>
+</html>

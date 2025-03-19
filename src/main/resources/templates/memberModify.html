@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원정보 수정하기</title>
+</head>
+<body>
+<h1>회원 정보 수정</h1>
+<script th:inline="javascript">
+    let error = [[${error}]]
+    if(error){
+        alert(error)
+    }
+</script>
+<form action="/members/modify" method="post" th:field="${membersDTO}">
+    이름 : <input name="name" th:value="${membersDTO.name}"><br>
+    이메일 : <input name="email" th:value="${membersDTO.email}"><br>
+    비밀번호 : <a href="/members/modify/password">비밀번호 수정 페이지로 이동</a><br>
+    <button>전송</button>
+</form>
+</body>
+</html>

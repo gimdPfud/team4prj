@@ -34,6 +34,7 @@ public class MembersServiceImpl implements MembersService, UserDetailsService {
         }
         members = modelMapper.map(membersDTO, Members.class);
         members.setPassword(passwordEncoder.encode(membersDTO.getPassword()));
+        members.setRole(Role.USER);
         membersRepository.save(members);
         return members.getName();
     }
@@ -60,7 +61,7 @@ public class MembersServiceImpl implements MembersService, UserDetailsService {
     @Override
     public boolean changePassword(MembersDTO membersDTO) {
         /*새 비밀번호끼리 비교*/
-        if(membersDTO.getNewPassword1().equals(membersDTO.getNewPassword2())){
+        if(!membersDTO.getNewPassword1().equals(membersDTO.getNewPassword2())){
             return false;
         }
 
