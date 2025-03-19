@@ -21,11 +21,13 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http.authorizeHttpRequests(auth->{
             auth.requestMatchers("/assets/**", "/css/**", "/js/**").permitAll();
+            auth.requestMatchers("/todo/**", "/free/**","/board/**","/members/**").authenticated();
             auth.anyRequest().permitAll();
         });
 
@@ -33,6 +35,8 @@ public class SecurityConfig {
             login.loginPage("/login")
                     .usernameParameter("email")
                     .defaultSuccessUrl("/main")
+//                    .successHandler(new CustomSuccessHandler())
+//                    .failureHandler(new CustomFailureHandler())
                     .failureUrl("/login");
         });
 
