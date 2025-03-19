@@ -29,6 +29,4 @@ public class BoardDTO {
 
     private LocalDateTime regTime;
 
-    private Long ggf;
-
 }
