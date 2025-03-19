@@ -15,7 +15,7 @@
 </script>
 <form action="/members/modify" method="post" th:field="${membersDTO}">
     이름 : <input name="name" th:value="${membersDTO.name}"><br>
-    이메일 : <input name="email" th:value="${membersDTO.email}"><br>
+    이메일 : <input name="email" th:value="${membersDTO.email}" readonly><br>
     비밀번호 : <a href="/members/modify/password">비밀번호 수정 페이지로 이동</a><br>
     <button>전송</button>
 </form>

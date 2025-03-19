@@ -4,7 +4,6 @@ import com.example.project4team.constant.Role;
 import com.example.project4team.dto.MembersDTO;
 import com.example.project4team.entity.Members;
 import com.example.project4team.repository.MembersRepository;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
@@ -52,8 +51,7 @@ public class MembersServiceImpl implements MembersService, UserDetailsService {
     @Override
     public Long modifyMembers(MembersDTO membersDTO) {
         log.info("수정 들어온 값 : "+membersDTO);
-        Members members = membersRepository.findById(membersDTO.getMembersNum())
-                .orElseThrow(EntityNotFoundException::new);
+        Members members = membersRepository.findByEmail(membersDTO.getEmail());
         members.setName(membersDTO.getName());
         return members.getMembersNum();
     }
