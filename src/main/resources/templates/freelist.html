@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Freelist</title>
+</head>
+<body>
+<h1>FreeList</h1>
+
+<table>
+  <thead>
+  <th>글번호</th>
+  <th>글제목</th>
+  <th>글내용</th>
+  <th>글작성자</th>
+  <th>작성일자</th>
+
+  </thead>
+  <tbody>
+
+<th:block th:each="freeDTO: ${freeDTOList}">
+  <tr>
+    <td th:text="${freeDTO.freenum}"></td>
+    <td >
+      <a class="readbtn" th:data-num="${freeDTO.freenum}" th:href="@{/free/read(freenum=${freeDTO.freenum})}">
+        [[${freeDTO.title}]]
+      </a>
+    </td>
+    <td th:text="${freeDTO.content}"></td>
+    <td th:text="${freeDTO.writer}"></td>
+    <td th:text="${#temporals.format(freeDTO.regTime, 'yy/MM/dd HH:mm')}"></td>
+  </tr>
+
+
+
+
+
+
+
+</th:block>
+  </tbody>
+
+</table>
+
+
+</body>
+</html>

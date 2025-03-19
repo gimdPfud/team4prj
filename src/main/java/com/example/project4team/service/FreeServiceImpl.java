@@ -4,6 +4,8 @@ import com.example.project4team.dto.FreeDTO;
 import com.example.project4team.entity.Free;
 import com.example.project4team.repository.FreeRepository;
 import jakarta.persistence.EntityExistsException;
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
@@ -20,6 +22,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 @Log4j2
+@Transactional
 public class FreeServiceImpl implements FreeService{
 
     @Autowired
@@ -81,7 +84,7 @@ public class FreeServiceImpl implements FreeService{
 
         //예외처리 하기
         Free free =
-        optionalFree.get();
+        optionalFree.orElseThrow(EntityNotFoundException::new);
 
         log.info("Free읽기 Pk에 포함된 값 들어 왔니 " + free);
 
@@ -126,4 +129,22 @@ public class FreeServiceImpl implements FreeService{
 
 
     }
+
+    //페이지 처리에 필요한 카운터 메서드
+    @Override
+    public int pageCount(Pageable pageable) {
+        //repository page 가져오기
+
+        Page<Free> freePage =
+                freeRepository.pageFree(pageable);
+
+        //토탈 페이지 가져오기
+        int count =
+                freePage.getTotalPages();
+
+
+        return count;
+    }
+
+
 }

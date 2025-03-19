@@ -27,4 +27,8 @@ public interface FreeService {
     public void delFree(Long fno);
 
 
+    //페이지 카운터 처리
+    public int pageCount(Pageable pageable);
+
+
 }
