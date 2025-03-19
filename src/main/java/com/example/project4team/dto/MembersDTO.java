@@ -1,5 +1,6 @@
 package com.example.project4team.dto;
 
+import com.example.project4team.constant.Role;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
@@ -20,4 +21,6 @@ public class MembersDTO {
 
     @Size(max = 20, min = 1)
     private String password;
+
+    private Role role;
 }

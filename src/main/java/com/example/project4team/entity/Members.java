@@ -1,5 +1,6 @@
 package com.example.project4team.entity;
 
+import com.example.project4team.constant.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,4 +23,7 @@ public class Members {
     private String email;
 
     private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }
