@@ -16,10 +16,9 @@ public class MembersDTO {
     @Size(max = 20, min = 1)
     private String name;
 
-    @Size(max = 20, min = 1)
     private String email;
 
-    @Size(max = 20, min = 1)
+    @Size(max = 20, min = 8)
     private String password;
 
     private String newPassword1;
