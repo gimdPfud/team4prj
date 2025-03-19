@@ -16,7 +16,6 @@ import java.time.LocalDateTime;
 
 public class FreeDTO {
 
-
     private Long freenum;
 
     private String title;
@@ -28,6 +27,6 @@ public class FreeDTO {
     //등록날짜
     private LocalDateTime regTime;
 
-    private Members members;
+    private Long membersNum;
 
 }
