@@ -30,6 +30,6 @@ public class FreeDTO {
 
     private Long membersNum;
 
-    private Long zzz;
+    private Long zzddz;
 
 }
