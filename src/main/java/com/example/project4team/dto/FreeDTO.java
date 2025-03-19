@@ -16,7 +16,6 @@ import java.time.LocalDateTime;
 
 public class FreeDTO {
 
-
     private Long freenum;
 
     private String title;
