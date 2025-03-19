@@ -22,7 +22,7 @@ public class TodoDTO {
     //등록날짜
     private LocalDateTime regTime;
 
-    private Members members;
+    private Long membersNum;
 
 
 }
