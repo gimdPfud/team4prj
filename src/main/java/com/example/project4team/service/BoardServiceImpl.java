@@ -4,6 +4,8 @@ import com.example.project4team.dto.BoardDTO;
 import com.example.project4team.entity.Board;
 import com.example.project4team.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,6 +15,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Log4j2
 public class BoardServiceImpl implements BoardService {
 
     private final BoardRepository boardRepository;
@@ -28,6 +31,7 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public BoardDTO readBoard(Long bno) {
+        log.info(bno);
 
         Board board = boardRepository.findById(bno).orElseThrow();
 
@@ -36,6 +40,7 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public void insertBoard(BoardDTO boardDTO) {
+        log.info(boardDTO);
 
         Board board = modelMapper.map(boardDTO, Board.class);
         boardRepository.save(board);
@@ -43,6 +48,7 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public void modifyBoard(BoardDTO boardDTO) {
+        log.info(boardDTO);
 
         Board board = modelMapper.map(boardDTO, Board.class);
         boardRepository.save(board);
@@ -50,6 +56,7 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public void delBoard(Long bno) {
+        log.info(bno);
 
         boardRepository.deleteById(bno);
     }
