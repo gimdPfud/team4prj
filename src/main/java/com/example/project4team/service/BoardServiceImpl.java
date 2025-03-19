@@ -31,7 +31,7 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public BoardDTO readBoard(Long bno) {
-        log.info(bno);
+        log.info("들어온 값 : " + bno);
 
         Board board = boardRepository.findById(bno).orElseThrow();
 
@@ -40,7 +40,7 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public void insertBoard(BoardDTO boardDTO) {
-        log.info(boardDTO);
+        log.info("들어온 값 : " + boardDTO);
 
         Board board = modelMapper.map(boardDTO, Board.class);
         boardRepository.save(board);
@@ -48,7 +48,7 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public void modifyBoard(BoardDTO boardDTO) {
-        log.info(boardDTO);
+        log.info("들어온 값 : " + boardDTO);
 
         Board board = modelMapper.map(boardDTO, Board.class);
         boardRepository.save(board);
@@ -56,7 +56,7 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public void delBoard(Long bno) {
-        log.info(bno);
+        log.info("들어온 값 : " + bno);
 
         boardRepository.deleteById(bno);
     }
