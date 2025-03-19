@@ -22,5 +22,8 @@ public class MembersDTO {
     @Size(max = 20, min = 1)
     private String password;
 
+    private String newPassword1;
+    private String newPassword2;
+
     private Role role;
 }
