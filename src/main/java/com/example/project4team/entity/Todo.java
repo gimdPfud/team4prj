@@ -20,7 +20,7 @@ public class Todo extends Base{
     private String witer;
     private String yn;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "membersNum")
     private Members members;
 

@@ -11,7 +11,7 @@ public interface TodoService {
     public TodoDTO insertTodo(TodoDTO todoDTO);
 
     //목록
-    public List<TodoDTO> listTodo(TodoDTO todoDTO);
+    public List<TodoDTO> listTodo(String writer);
 
     //읽기
     public TodoDTO readTodo(long tno);
