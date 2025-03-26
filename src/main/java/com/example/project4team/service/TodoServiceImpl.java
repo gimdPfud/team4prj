@@ -23,6 +23,8 @@ import java.util.Optional;
 public class TodoServiceImpl implements TodoService{
     private final TodoRepository todoRepository;
     private final ModelMapper modelMapper = new ModelMapper();
+    private final MembersService membersService;
+
     //등록
     @Override
     public TodoDTO insertTodo(TodoDTO todoDTO) {
@@ -37,17 +39,17 @@ public class TodoServiceImpl implements TodoService{
     }
     //목록
     @Override
-    public List<TodoDTO> listTodo(TodoDTO todoDTO) {
+    public List<TodoDTO> listTodo(String witer) {
 
         List<Todo> todoList=
-        todoRepository.findByWiter(todoDTO.getWiter());
+                todoRepository.findByWiter(witer);
 
 
         List<TodoDTO> todoDTOList = new ArrayList<>();
 
         for (Todo todo:todoList){
 
-            todoDTO = modelMapper.map(todo,TodoDTO.class);
+            TodoDTO todoDTO = modelMapper.map(todo,TodoDTO.class);
 
             todoDTOList.add(todoDTO);
 
